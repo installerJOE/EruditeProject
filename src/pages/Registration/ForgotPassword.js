@@ -1,18 +1,25 @@
 import React, { useState } from 'react'
-import {Alert, Button, Pressable, SafeAreaView, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
+import {Text, TextInput, TouchableOpacity, View} from 'react-native'
 import Auth from '../Auth/Auth';
 import {styles} from '../../assets/css/main';
 
-const Email = ({navigation}) => {
+const ForgotPassword = ({navigation}) => {
+
   const [email, setEmail] = useState('');
+ 
+  const sendPasswordResetLink = () => {
+    navigation.navigate('PasswordResetLinkSent')
+  }
 
   return (
     <Auth>
         <Text style={[styles.header, styles.textCenter, styles.textGreen]}> 
-          Create Account
+          Forgot Password?
         </Text>
         <View style={[styles.fixToText, styles.mt1]}>
-          <Text style={styles.paragraph}> Email Address </Text>
+          <Text style={styles.paragraph}> 
+            Enter your email address 
+          </Text>
           <TextInput
             style={[styles.formControl, styles.textWhite]}
             // placeholder="e.g. joemike@gmail.com"
@@ -23,7 +30,7 @@ const Email = ({navigation}) => {
         </View>
 
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Password')}>
+          <TouchableOpacity onPress={sendPasswordResetLink}>
             <Text style={[styles.btn, styles.btnGreenBg, styles.mb1]}>
               Proceed
             </Text>
@@ -34,13 +41,13 @@ const Email = ({navigation}) => {
 
         <View>
           <Text style={[styles.paragraph, styles.mt1, styles.textWhite, styles.textCenter]}> 
-            Already have an account yet?
+            Do you remember it now?
           </Text> 
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={[styles.paragraph, styles.textGreen, styles.textCenter, styles.textUnderlined, {
               marginTop: 0
             }]}> 
-              Login Here 
+              Login Here
             </Text>
           </TouchableOpacity>
         </View>
@@ -48,4 +55,5 @@ const Email = ({navigation}) => {
     </Auth>
   )
 }
-export default Email
+
+export default ForgotPassword

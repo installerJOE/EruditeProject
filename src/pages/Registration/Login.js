@@ -9,6 +9,11 @@ const Login = ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const loginUser = () => {
+    Alert.alert('logged in');
+    navigation.navigate('Index')
+  }
+
   return (
     <Auth>
       <Text style={[styles.header, styles.textCenter, styles.textGreen, styles.mb1]}> 
@@ -38,7 +43,7 @@ const Login = ({navigation}) => {
           value={password}
         />
 
-        <TouchableOpacity onPress={()=>{Alert.alert('I am working')}}>
+        <TouchableOpacity onPress={loginUser}>
           <Text style={[styles.btn, styles.btnGreenBg]}>
             Login Now
           </Text>
@@ -51,7 +56,7 @@ const Login = ({navigation}) => {
         <Text style={[styles.paragraph, styles.mt1, styles.textWhite, styles.textCenter]}> 
           Did you forget your password?
         </Text> 
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
           <Text style={[styles.paragraph, styles.textGreen, styles.textCenter, styles.textUnderlined, {
             marginTop: 0
           }]}> 

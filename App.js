@@ -3,14 +3,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import Courses from './src/pages/Main/Courses';
-import Home from './src/pages/Main/Home';
-import Login from './src/pages/Registration/Login';
+
 import Welcome from './src/pages/Welcome';
+import Programme from './src/pages/Registration/Programme';
+import Courses from './src/pages/Main/Courses';
 import Email from './src/pages/Registration/Email';
 import Password from './src/pages/Registration/Password';
-import Programme from './src/pages/Registration/Programme';
+import Login from './src/pages/Registration/Login';
+import ForgotPassword from './src/pages/Registration/ForgotPassword';
+import ResetLinkSent from './src/pages/Registration/ResetLinkSent';
+
+import Index from './src/pages/Main/Index';
 import StudyCourse from './src/pages/Registration/StudyCourse';
+
 
 
 
@@ -48,9 +53,13 @@ const App = () => {
           
           <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
           
+          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown: false}}/>
+
+          <Stack.Screen name="PasswordResetLinkSent" component={ResetLinkSent} options={{headerShown: false}}/>
+          
           {/* <Stack.Screen name="Verify Email" component={Password} options={{headerShown: false}}/> */}
 
-          <Stack.Screen name="Index" component={Home} options={{ title: '' }}/>
+          <Stack.Screen name="Index" component={Index} options={{ title: 'Home' }}/>
 
           <Stack.Screen name="Courses" component={Courses} />
         {/* </SafeAreaView> */}

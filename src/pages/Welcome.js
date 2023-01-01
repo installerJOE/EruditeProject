@@ -24,6 +24,24 @@ const Welcome = ({navigation}) => {
           Get Started
         </Text>
       </TouchableOpacity>
+
+      <View style={styles.sectionContainer}/>
+
+      <View style={styles.mt2}>
+         <Text style={[styles.paragraph, styles.textGreen, styles.textCenter, {
+            marginTop: 0, color: "#fff", fontSize: 20
+          }]}> 
+          Already have an account?
+        </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={[styles.paragraph, styles.textGreen, styles.textCenter, styles.textUnderlined, {
+            marginTop: 0, color: "#fff", fontSize: 20
+          }]}> 
+            Login Here
+          </Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   )
 }
