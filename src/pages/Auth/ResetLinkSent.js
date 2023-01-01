@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native'
-import Auth from '../Auth/Auth';
+import Layout from './Layout';
 import {styles, colors} from '../../assets/css/main';
 
 
@@ -17,7 +17,7 @@ const ResetLinkSent = ({navigation}) => {
   }
   
   return (
-    <Auth>
+    <Layout>
       <Text style={[styles.header, styles.textCenter, styles.textGreen, styles.mb1, {
         fontSize: 30
       }]}> 
@@ -61,7 +61,7 @@ const ResetLinkSent = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-    </Auth>
+    </Layout>
   )
 }
 

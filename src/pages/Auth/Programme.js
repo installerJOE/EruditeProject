@@ -1,36 +1,36 @@
 import React, {useState} from 'react'
 import {Alert, Button, Pressable, SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
 import { SelectList } from 'react-native-dropdown-select-list'
-import studyCourses from './api/studyCourseList'
-import Auth from '../Auth/Auth'
+import studyProgrammes from './api/studyProgrammeList'
+import Layout from './Layout'
 import { styles, colors } from '../../assets/css/main'
 
-const StudyCourse = ({navigation}) => {
+const Programme = ({navigation}) => {
   const [selected, setSelected] = useState("");
 
   return (
-    <Auth>
+    <Layout>
       <Text style={[styles.header, styles.textCenter, styles.textGreen, styles.mb1]}> 
-        What course are you currently studying?
+        What degree are you aiming for?
       </Text>
 
       <View style={styles.fixToText}>
         <SelectList 
           setSelected={(val) => setSelected(val)} 
-          data={studyCourses} 
+          data={studyProgrammes} 
           save="key"
         />
       </View>
       
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('Email')}>
+        <TouchableOpacity onPress={() => navigation.navigate('StudyCourse')}>
           <Text style={[styles.btn, styles.btnGreenBg, styles.mt1]}>
-            Proceed
+            Continue
           </Text>
         </TouchableOpacity>
       </View>
-    </Auth>
+    </Layout>
   )
 }
 
-export default StudyCourse
+export default Programme

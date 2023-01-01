@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Alert, Button, Pressable, SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
-import Auth from '../Auth/Auth';
+import Layout from './Layout';
 import { styles } from '../../assets/css/main';
 
 
@@ -15,7 +15,7 @@ const Login = ({navigation}) => {
   }
 
   return (
-    <Auth>
+    <Layout>
       <Text style={[styles.header, styles.textCenter, styles.textGreen, styles.mb1]}> 
         Welcome Back!
       </Text>
@@ -64,7 +64,7 @@ const Login = ({navigation}) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </Auth>
+    </Layout>
   )
 }
 

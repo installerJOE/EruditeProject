@@ -4,7 +4,7 @@ import {Alert, Button, Pressable, SafeAreaView, ScrollView, StatusBar, Text, Tex
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {styles, colors} from '../../assets/css/main';
 
-const Auth = (props) => {
+const Layout = (props) => {
   const backgroundStyle = {
     backgroundColor: colors.darkGreen,
   };
@@ -18,4 +18,4 @@ const Auth = (props) => {
   )
 }
 
-export default Auth
+export default Layout

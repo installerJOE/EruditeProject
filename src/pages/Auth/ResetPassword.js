@@ -1,5 +1,7 @@
 import React from 'react'
-import { Alert } from 'react-native'
+import {Alert, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import Layout from './Layout';
+import {styles} from '../../assets/css/main';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('')
@@ -12,7 +14,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <Auth>
+    <Layout>
       <Text style={[styles.header, styles.textCenter, styles.textGreen]}> 
         Almost Done!
       </Text>
@@ -62,7 +64,7 @@ const ResetPassword = () => {
         </TouchableOpacity>
       </View>
 
-    </Auth>
+    </Layout>
   )
 }
 

@@ -5,17 +5,16 @@ import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import Welcome from './src/pages/Welcome';
-import Programme from './src/pages/Registration/Programme';
-import Courses from './src/pages/Main/Courses';
-import Email from './src/pages/Registration/Email';
-import Password from './src/pages/Registration/Password';
-import Login from './src/pages/Registration/Login';
-import ForgotPassword from './src/pages/Registration/ForgotPassword';
-import ResetLinkSent from './src/pages/Registration/ResetLinkSent';
+import Programme from './src/pages/Auth/Programme';
+import StudyCourse from './src/pages/Auth/StudyCourse';
+import Email from './src/pages/Auth/Email';
+import Password from './src/pages/Auth/Password';
+import Login from './src/pages/Auth/Login';
+import ForgotPassword from './src/pages/Auth/ForgotPassword';
+import ResetLinkSent from './src/pages/Auth/ResetLinkSent';
 
 import Index from './src/pages/Main/Index';
-import StudyCourse from './src/pages/Registration/StudyCourse';
-
+import Courses from './src/pages/Main/Courses';
 
 
 

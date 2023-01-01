@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Text, TextInput, TouchableOpacity, View} from 'react-native'
-import Auth from '../Auth/Auth';
+import Layout from './Layout';
 import {styles} from '../../assets/css/main';
 
 const ForgotPassword = ({navigation}) => {
@@ -12,7 +12,7 @@ const ForgotPassword = ({navigation}) => {
   }
 
   return (
-    <Auth>
+    <Layout>
         <Text style={[styles.header, styles.textCenter, styles.textGreen]}> 
           Forgot Password?
         </Text>
@@ -52,7 +52,7 @@ const ForgotPassword = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-    </Auth>
+    </Layout>
   )
 }
 

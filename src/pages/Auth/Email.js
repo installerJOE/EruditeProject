@@ -1,42 +1,29 @@
 import React, { useState } from 'react'
-import {Text, TextInput, TouchableOpacity, View} from 'react-native'
-import Auth from '../Auth/Auth';
+import {Alert, Button, Pressable, SafeAreaView, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
+import Layout from './Layout';
 import {styles} from '../../assets/css/main';
 
-
-const Password = ({navigation, email}) => {
-
-  const [password, setPassword] = useState('')
-
-  const createAccount = () => {
-    // do some validation
-    const data = {
-      email: email,
-      password: password,
-    }
-    
-    navigation.navigate('Index')
-  }
+const Email = ({navigation}) => {
+  const [email, setEmail] = useState('');
 
   return (
-    <Auth>
+    <Layout>
         <Text style={[styles.header, styles.textCenter, styles.textGreen]}> 
-          Almost Done!
+          Create Account
         </Text>
         <View style={[styles.fixToText, styles.mt1]}>
-          <Text style={styles.paragraph}> 
-            Enter your password
-          </Text>
+          <Text style={styles.paragraph}> Email Address </Text>
           <TextInput
             style={[styles.formControl, styles.textWhite]}
-            onChangeText={(value) => setPassword(value)}
-            keyboardType='password'
-            value={password}   
+            // placeholder="e.g. joemike@gmail.com"
+            onChangeText={(value) => setEmail(value)}
+            keyboardType='email-address'
+            value={email}   
           />
         </View>
 
         <View>
-          <TouchableOpacity onPress={createAccount}>
+          <TouchableOpacity onPress={() => navigation.navigate('Password')}>
             <Text style={[styles.btn, styles.btnGreenBg, styles.mb1]}>
               Proceed
             </Text>
@@ -49,7 +36,7 @@ const Password = ({navigation, email}) => {
           <Text style={[styles.paragraph, styles.mt1, styles.textWhite, styles.textCenter]}> 
             Already have an account yet?
           </Text> 
-          <TouchableOpacity onPress={() => navigation.navigate('')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={[styles.paragraph, styles.textGreen, styles.textCenter, styles.textUnderlined, {
               marginTop: 0
             }]}> 
@@ -58,8 +45,7 @@ const Password = ({navigation, email}) => {
           </TouchableOpacity>
         </View>
 
-    </Auth>
+    </Layout>
   )
 }
-
-export default Password
+export default Email
