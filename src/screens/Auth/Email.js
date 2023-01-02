@@ -7,7 +7,7 @@ const Email = ({navigation}) => {
   const [email, setEmail] = useState('');
 
   const proceedToPassword = () => {
-    () => navigation.navigate('Password', {
+    navigation.navigate('Password', {
       params: {email: email}
     });
   }

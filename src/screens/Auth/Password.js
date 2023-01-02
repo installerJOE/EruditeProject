@@ -30,7 +30,7 @@ const Password = ({navigation, email}) => {
           <TextInput
             style={[styles.formControl, styles.textWhite]}
             onChangeText={(value) => setPassword(value)}
-            keyboardType='password'
+            secureTextEntry={true}
             value={password}   
           />
         </View>
