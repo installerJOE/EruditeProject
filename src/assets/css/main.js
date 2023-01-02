@@ -9,6 +9,8 @@ const colors = {
   white: '#ffffff',
   green: '#0ca544',
   darkGreen: '#02170a',
+  black: '#000',
+  darkGrey: '#424242'
 }
 
 const fontSizes = {
@@ -50,13 +52,8 @@ const styles = StyleSheet.create({
   },
 
   headerBlock: {
-    fontSize: 28,
-    fontWeight: "bold",
-    textAlign: 'left',
-    backgroundColor: colors.lightGrey,
-    padding: 20,
-    color: colors.orange,
-    marginVertical: 21,
+    backgroundColor: colors.green,
+    height: 70
   },
 
   header: {
@@ -68,8 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 21,
     fontWeight: "bold",
     backgroundColor: colors.lightGrey,
-    padding: 20,
+    padding: 10,
     color: colors.orange,
+  },
+
+  captionHeader: {
+    fontSize: 18,
+    color: colors.darkGrey,
   },
 
   paragraph: {
@@ -121,6 +123,13 @@ const styles = StyleSheet.create({
     width: '100%',
     padding: 20
   }, 
+
+  listContainer: {
+    padding: 20,
+    backgroundColor: '#e6e6e6',
+    marginHorizontal: 10,
+    marginBottom: 10,
+  },
 
   centeredBlock: {
     flexDirection: 'column',
@@ -185,6 +194,14 @@ const styles = StyleSheet.create({
 
   textUnderlined: {
     textDecorationLine: 'underline'
+  },
+
+  textBlack: {
+    color: colors.black
+  },
+
+  textDarkGrey: {
+    color: '#424242'
   },
 
   textOrange: {

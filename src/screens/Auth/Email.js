@@ -6,6 +6,12 @@ import {styles} from '../../assets/css/main';
 const Email = ({navigation}) => {
   const [email, setEmail] = useState('');
 
+  const proceedToPassword = () => {
+    () => navigation.navigate('Password', {
+      params: {email: email}
+    });
+  }
+
   return (
     <Layout>
         <Text style={[styles.header, styles.textCenter, styles.textGreen]}> 
@@ -23,7 +29,7 @@ const Email = ({navigation}) => {
         </View>
 
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Password')}>
+          <TouchableOpacity onPress={proceedToPassword}>
             <Text style={[styles.btn, styles.btnGreenBg, styles.mb1]}>
               Proceed
             </Text>

@@ -1,68 +1,44 @@
 import React from 'react';
+import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-import Welcome from './src/pages/Welcome';
-import Programme from './src/pages/Auth/Programme';
-import StudyCourse from './src/pages/Auth/StudyCourse';
-import Email from './src/pages/Auth/Email';
-import Password from './src/pages/Auth/Password';
-import Login from './src/pages/Auth/Login';
-import ForgotPassword from './src/pages/Auth/ForgotPassword';
-import ResetLinkSent from './src/pages/Auth/ResetLinkSent';
-
-import Index from './src/pages/Main/Index';
-import Courses from './src/pages/Main/Courses';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
+import Welcome from './src/screens/Welcome';
+import Programme from './src/screens/Auth/Programme';
+import StudyCourse from './src/screens/Auth/StudyCourse';
+import Email from './src/screens/Auth/Email';
+import Password from './src/screens/Auth/Password';
+import Login from './src/screens/Auth/Login';
+import ForgotPassword from './src/screens/Auth/ForgotPassword';
+import ResetLinkSent from './src/screens/Auth/ResetLinkSent';
 
+import Index from './src/screens/Main/HomeScreen';
+import Courses from './src/screens/Main/CoursesScreen';
+
+import { styles, colors } from './src/assets/css/main';
+import AuthStackNavigator from './src/navigation/AuthStackNavigator';
+
+
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
   
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   const Stack = createNativeStackNavigator();
 
+  const screenOptionsStyle = {
+    headerStyle: styles.headerBlock,
+    headerTintColor: colors.white,
+    headerTitleStyle: {
+      fontSize: 24
+    }
+  }
+
   return (
-    <NavigationContainer screenOptions={{
-      headerStyle: {
-        backgroundColor: '#f4511e',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    }}>
-      <Stack.Navigator>
-        {/* <SafeAreaView style={backgroundStyle}> */}
-          <Stack.Screen name="Home" component={Welcome} options={{headerShown: false}}/>
-
-          <Stack.Screen name="Programme" component={Programme} options={{headerShown: false}}/>
-
-          <Stack.Screen name="StudyCourse" component={StudyCourse} options={{headerShown: false}}/>
-
-          <Stack.Screen name="Email" component={Email} options={{headerShown: false}}/>
-          
-          <Stack.Screen name="Password" component={Password} options={{headerShown: false}}/>
-          
-          <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
-          
-          <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown: false}}/>
-
-          <Stack.Screen name="PasswordResetLinkSent" component={ResetLinkSent} options={{headerShown: false}}/>
-          
-          {/* <Stack.Screen name="Verify Email" component={Password} options={{headerShown: false}}/> */}
-
-          <Stack.Screen name="Index" component={Index} options={{ title: 'Home' }}/>
-
-          <Stack.Screen name="Courses" component={Courses} />
-        {/* </SafeAreaView> */}
-      </Stack.Navigator>
+    <NavigationContainer>
+      <AuthStackNavigator/>
     </NavigationContainer>
   );
 };
