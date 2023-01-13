@@ -8,6 +8,8 @@ import { styles, colors } from '../assets/css/main';
 import ExtrasScreen from '../screens/Main/ExtrasScreen';
 import ProfileScreen from '../screens/Main/ProfileScreen';
 import AwardsScreen from '../screens/Main/AwardsScreen';
+import LibraryTabNavigator from './LibraryTabNavigator';
+import SettingsTabNavigator from './SettingsTabNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,10 +35,10 @@ const MainTabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={screenOptionsStyle}>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Courses" component={CoursesScreen} />
+      <Tab.Screen name="Library" component={LibraryTabNavigator} />
       <Tab.Screen name="Awards" component={AwardsScreen} />
       <Tab.Screen name="Extras" component={ExtrasScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Settings" component={SettingsTabNavigator} />
     </Tab.Navigator> 
   )
 }

@@ -1,15 +1,20 @@
 import React from 'react'
-import {SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
+import {Alert, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, useColorScheme, View} from 'react-native'
 import { colors, styles } from '../../assets/css/main'
 
-const ListItem = ({ list }) => {
-  
+const ListItem = ({ navigation, list }) => {
+  const handleCourseClick = () => {
+    navigation.navigate('CourseProgramme')
+  }
+
   return (
-    <View style={styles.listContainer}>
-      <Text style={styles.captionHeader}>
-        {list.title}
-      </Text>
-    </View>
+    <TouchableOpacity onPress={handleCourseClick}>
+      <View style={styles.listContainer}>
+        <Text style={styles.captionHeader}>
+          {list.name}
+        </Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 
