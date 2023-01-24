@@ -1,0 +1,8 @@
+const LessonContent = {
+    id: 1,
+    title: 'An Introduction to the study of Law',
+    preview: 'This is a short preview of what this lesson is all about.',
+    body: 'Igbo Library provides free access to a large number of downloadable indigenous Igbo Contents– books (literature), article and reference, dictionaries, past questions and answers, Igbo calendar, Igbo proverbs, Igbo cosmology – from the public web using its servers – the servers act as a proxy for you. This means that no data is controlled by us and you must have the legal right to download the content you are accessing through our servers; this site should not be used for any other purpose. If you want to check the legitimacy of the data you wish to fetch with Igbo Library, please contact the relevant content distributors and/or data hosts. This site was created to allow you to download “data’’ found on the Web such as articles, books (PDF, epub, etc.), or large media resources, as well as buy CONTENT put on SALES by authors or Contributors. The prices of the content(s) is subject to the agreement reached between Us and Contributors. Igbo Library reserves the right at any time to modify or discontinue, temporarily or permanently, any of the services it provides you with or without notice. You agree that Igbo Library shall not be liable to you or to any third party for any modification, suspension or discontinuance of any of the services (or any part thereof) it provides.',
+}
+
+export default LessonContent;

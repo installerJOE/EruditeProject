@@ -23,7 +23,7 @@ const HomeScreen = () => {
         </Text>
 
         <Text style={[styles.textDarkGrey, styles.paragraph, styles.textCenter]}>
-        Did you know that you look very awesome today? :)
+          Did you know that you look very awesome today? :)
         </Text>
       </View>
     </ScrollView>

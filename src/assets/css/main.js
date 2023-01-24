@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
     height: 70
   },
 
+  xlHeader: {
+    fontSize: 32,
+  },
+
   header: {
     fontSize: 28,
     fontWeight: "bold", 
@@ -63,14 +67,11 @@ const styles = StyleSheet.create({
 
   subHeader: {
     fontSize: 21,
-    fontWeight: "bold",
-    backgroundColor: colors.lightGrey,
     padding: 10,
-    color: colors.orange,
   },
 
   captionHeader: {
-    fontSize: 18,
+    fontSize: 24,
     color: colors.darkGrey,
   },
 
@@ -94,12 +95,11 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 24,
     borderRadius: 10,
-    textAlign: 'center',
-    fontSize: fontSizes.font16
   },
 
-  btnHover: {
-    backgroundColor: colors.orange
+  btnText: {
+    textAlign: 'center',
+    fontSize: fontSizes.font16,
   },
 
   btnOrangeBg: {
@@ -109,8 +109,10 @@ const styles = StyleSheet.create({
   },
 
   btnGreenBg: {
-    borderWidth: 1,
     backgroundColor: colors.green,
+  },
+
+  btnGreenBgText: {
     color: colors.white,
   },
 
@@ -125,7 +127,8 @@ const styles = StyleSheet.create({
   }, 
 
   listContainer: {
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
     backgroundColor: '#fff',
     marginHorizontal: 10,
     marginBottom: 10,
@@ -200,6 +203,10 @@ const styles = StyleSheet.create({
     color: colors.black
   },
 
+  textBold: {
+    fontWeight: 'bold'
+  },
+
   textDarkGrey: {
     color: '#424242'
   },
@@ -219,6 +226,19 @@ const styles = StyleSheet.create({
   textLightGrey: {
     color: colors.lightGrey
   },
+
+  whiteBackground: {
+    backgroundColor: '#fff',
+  },
+
+  infoBox : {
+    padding: 20,
+    backgroundColor: '#dfdfdf'
+  },
+
+  lineHeight20: {
+    lineHeight: 25
+  }, 
 });
 
 export {styles, colors};

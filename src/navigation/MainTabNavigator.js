@@ -2,7 +2,6 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from '../screens/Main/HomeScreen';
-import CoursesScreen from '../screens/Main/CoursesScreen';
 
 import { styles, colors } from '../assets/css/main';
 import ExtrasScreen from '../screens/Main/ExtrasScreen';

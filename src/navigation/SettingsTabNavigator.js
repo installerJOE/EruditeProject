@@ -2,9 +2,10 @@ import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { styles, colors } from '../assets/css/main';
-import ProfileScreen from '../screens/Main/ProfileScreen';
+
 import PasswordScreen from '../screens/Main/PasswordScreen';
 import { topTabScreenOptionsStyle } from '../assets/css/nav';
+import ProfileScreen from '../screens/Main/Settings/ProfileScreen';
 
 const Tab = createMaterialTopTabNavigator();
 

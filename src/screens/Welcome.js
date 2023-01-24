@@ -41,7 +41,6 @@ const Welcome = ({navigation}) => {
           </Text>
         </TouchableOpacity>
       </View>
-
     </View>
   )
 }

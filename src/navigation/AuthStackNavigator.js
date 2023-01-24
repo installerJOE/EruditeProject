@@ -19,7 +19,7 @@ const AuthStackNavigation = () => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Welcome} options={{headerShown: false}}/>
+      {/* <Stack.Screen name="Home" component={Welcome} options={{headerShown: false}}/>
 
       <Stack.Screen name="Programme" component={Programme} options={{headerShown: false}}/>
 
@@ -33,7 +33,7 @@ const AuthStackNavigation = () => {
 
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown: false}}/>
 
-      <Stack.Screen name="PasswordResetLinkSent" component={ResetLinkSent} options={{headerShown: false}}/>
+      <Stack.Screen name="PasswordResetLinkSent" component={ResetLinkSent} options={{headerShown: false}}/> */}
 
       <Stack.Screen name="Index" component={MainTabNavigator} options={{headerShown: false}}/>
 
