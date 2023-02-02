@@ -12,11 +12,11 @@ import LessonContent from '../../../contexts/LessonContent';
 const LessonContentScreen = ({ navigation }) => {
   const Stack = createNativeStackNavigator();
 
-  const handleDepartmentSelection = (slug) => {
-    navigation.navigate('Course Outline', {
-        params: {slug: slug}
-    })
-  }
+  // const handleDepartmentSelection = (slug) => {
+  //   navigation.navigate('Course Outline', {
+  //       params: {slug: slug}
+  //   })
+  // }
 
 //   const departmentListBlock = DepartmentList.map(dept => <ListItem 
 //     key={dept.id} list={dept} handleClick={handleDepartmentSelection}/>

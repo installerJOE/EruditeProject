@@ -1,19 +1,28 @@
 import React from 'react'
-import {SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
+import {Alert, SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {styles} from '../../assets/css/main';
 import ListItem from '../../components/Courses/ListItem';
-import AwardsData from './api/AwardsData';
+import MyAppText from '../../components/MyAppText';
+import { AwardsData } from '../../contexts/AwardsData';
 
 const AwardsScreen = () => {
-  const awardListBlock = AwardsData.map(award => <ListItem key={award.id} list={award}/>)
+  const handlePrizeClick = (id) => {
+    Alert.alert('I am working and the id of the prize clicked is ' + id)
+    // navigation.navigate('Welcome')
+  }
+
+  const awardListBlock = AwardsData.map(award => 
+    <ListItem 
+      key={award.id} 
+      list={award} 
+      caption={'Prize: ' + award.prize}
+      handleClick={handlePrizeClick}
+    />
+  )
+  
   return (
-    <ScrollView>
-      <View>
-      <Text style={[styles.subHeader, styles.textBlack]}> 
-          Your Awards
-        </Text>
-      </View>
+    <ScrollView style={{paddingTop: 10}}>
       <View>
         {awardListBlock}
       </View>

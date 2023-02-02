@@ -10,7 +10,8 @@ const colors = {
   green: '#0ca544',
   darkGreen: '#02170a',
   black: '#000',
-  darkGrey: '#424242'
+  darkGrey: '#424242',
+  red: '#cc0000'
 }
 
 const fontSizes = {
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   centeredBlock: {
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center', 
     height: '100%'
   },
 
@@ -203,8 +204,16 @@ const styles = StyleSheet.create({
     color: colors.black
   },
 
+  textRed: {
+    color: colors.red
+  },
+
   textBold: {
     fontWeight: 'bold'
+  },
+
+  textItalic: {
+    fontStyle: 'italic'
   },
 
   textDarkGrey: {
@@ -239,6 +248,40 @@ const styles = StyleSheet.create({
   lineHeight20: {
     lineHeight: 25
   }, 
+
+  borderBlack: {
+    borderColor: '#000'
+  },
+
+  screenImageStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+  },
+
+  ctrlBtn: {
+    flexDirection: 'row',
+
+  },
+
+  btnSm: {
+    padding:10,
+    borderRadius: 15,
+  },
+
+  btnGreenBd: {
+    borderWidth: 0,
+    backgroundColor: colors.green,
+  },
+
+  btnDanger: {
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: colors.red,
+    // backgroundColor: colors.red,
+  },
+
 });
 
 export {styles, colors};

@@ -1,9 +1,11 @@
 import React from 'react'
-import {SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
+import {StyleSheet, SafeAreaView, Image, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
 
 import { colors, styles } from '../../../assets/css/main';
 import { settingsStyle } from '../../../assets/css/settings';
 import UserData from '../../../contexts/UserData';
+import noProfileImage from '../../../assets/images/noprofile.png'
+import ProfileElement from '../../../components/Main/ProfileElement';
 
 
 const ProfileScreen = () => {
@@ -11,10 +13,12 @@ const ProfileScreen = () => {
     <ScrollView style={{padding:10}}>
       
       <View style={settingsStyle.profileElementsBlock}>
-        <View>
-          <Text style={[styles.subHeader, styles.textBlack]}> 
-            Image comes here
-          </Text>
+        <View style={{alignItems: 'center'}}>
+          <Image  
+            style={[settingsStyle.passport]}
+            source={noProfileImage}
+            alt='Profile Image'
+          />
         </View>
 
         <View>
@@ -28,9 +32,6 @@ const ProfileScreen = () => {
       </View>
 
       <View style={[settingsStyle.profileElementsBlock, styles.mt0]}>
-        {/* <Text style={[styles.textBlack, styles.]}>
-          Bio Data
-        </Text> */}
         <ProfileElement header="Gender" body={UserData.gender}/>
         <ProfileElement header="Date of Birth" body={UserData.dateOfBirth}/>
         <ProfileElement header="Phone Number" body={UserData.phoneNumber}/>
@@ -39,19 +40,6 @@ const ProfileScreen = () => {
       </View>
       
     </ScrollView>
-  )
-}
-
-const ProfileElement = ({header, body}) => {
-  return(
-    <View style={settingsStyle.profileElementContainer}>
-      <Text style={[settingsStyle.profileElementHeader]}>
-        {header}
-      </Text>
-      <Text style={[styles.subHeader, settingsStyle.profileElementBody]}>
-        {body}
-      </Text>
-    </View>
   )
 }
 

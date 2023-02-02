@@ -6,17 +6,19 @@ import { topTabScreenOptionsStyle } from '../assets/css/nav';
 
 import SubscribedCoursesScreen from '../screens/Main/SubscribedCoursesScreen';
 import CourseGuideListScreen from '../screens/Main/Library/CourseGuideListScreen';
-import ProgrammeSelectScreen from '../screens/Main/Library/ProgrammeSelectScreen';
 import CourseOutlineScreen from '../screens/Main/Library/CourseOutlineScreen';
 import DepartmentListScreen from '../screens/Main/Library/DepartmentListScreen';
 import LessonContentScreen from '../screens/Main/Library/LessonContentScreen';
+
+import { CourseProvider } from '../contexts/CourseContext';
+import { CourseListProvider } from '../contexts/CourseListContext';
 
 const Tab = createMaterialTopTabNavigator();
 
 const LibraryTabs = () => {
   return (
     <Tab.Navigator screenOptions={topTabScreenOptionsStyle}>
-      <Tab.Screen name="Study Guide" component={CourseGuideListScreen}/>
+      <Tab.Screen name="Study Guide" component={CourseList}/>
       <Tab.Screen name="Subscribed Courses" component={SubscribedCoursesScreen}/>
     </Tab.Navigator> 
   )
@@ -27,12 +29,37 @@ const LibraryTabNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Guide List" component={LibraryTabs} options={{headerShown: false}}/>
-      <Stack.Screen name="Select Programme" component={ProgrammeSelectScreen} options={{headerShown: false}}/>
-      <Stack.Screen name="Departments" component={DepartmentListScreen} options={{headerShown: false}}/>
-      <Stack.Screen name="Course Outline" component={CourseOutlineScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Departments" component={StudyProgrammeList} options={{headerShown: false}}/>
+      <Stack.Screen name="Course Outline" component={CourseOutline} options={{headerShown: false}}/>
       <Stack.Screen name="Lesson Content" component={LessonContentScreen} options={{headerShown: false}}/>
     </Stack.Navigator>
   )
 }
+
+const CourseOutline = ({navigation}) => {
+  return(
+    <CourseProvider> 
+      <CourseOutlineScreen navigation={navigation}/> 
+    </CourseProvider>
+  )
+}
+
+
+const CourseList = ({navigation}) => {
+  return (
+    <CourseListProvider>
+      <CourseGuideListScreen navigation={navigation}/>
+    </CourseListProvider>
+  )
+}
+
+const StudyProgrammeList = ({route, navigation}) => {
+  return (
+    <CourseListProvider>
+      <DepartmentListScreen navigation={navigation} route={route}/>
+    </CourseListProvider>
+  )
+}
+
 
 export default LibraryTabNavigator
