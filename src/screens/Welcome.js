@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {Alert, Button, Pressable, SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
 import {styles, colors} from '../assets/css/main';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -7,6 +7,14 @@ const Welcome = ({navigation}) => {
   const backgroundStyle = {
     backgroundColor: colors.green,
   };
+
+  useEffect(() => {
+    axios.get(baseUrl + '/institutions').then((response) => {
+      setInstitutions(response.data);
+    }).catch(error => {
+      setError(error)
+    });
+  }, []);
 
   return (
     <View style={[backgroundStyle, styles.centeredBlock]}>

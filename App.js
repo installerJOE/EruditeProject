@@ -1,16 +1,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthStackNavigator from './src/navigation/AuthStackNavigator';
-
-
-
-const Tab = createBottomTabNavigator();
+import { GlobalContextProvider } from './src/contexts/GlobalContext';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <AuthStackNavigator/>
+      <GlobalContextProvider>
+        <AuthStackNavigator/>
+      </GlobalContextProvider>
     </NavigationContainer>
   );
 };

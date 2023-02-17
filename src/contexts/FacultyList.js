@@ -1,64 +1,58 @@
 const FacultyList = [
     {
-        id: 1,
-        name: 'Engineering',
-        slug: 'engineering',
-        summary: 'This is the summary of this guide'
+        "id": 1,
+        "name": "Engineering",
+        "departments": [
+          {
+            "id": 2,
+            "name": "Computer Engineering",
+            "overview": "ghjk8udhfbdgvdumhfhvtyghfdjyghjfdjghejdsf"
+          },
+          {
+            "id": 4,
+            "name": "Electrical/Electronics Engineering",
+            "overview": "Shorty overview of this departmetnt"
+          },
+          {
+            "id": 5,
+            "name": "Chemical Engineering",
+            "overview": "This is the short overview of tuiluj uyfeduhds"
+          }
+        ]
     },
     {
-        id: 2,
-        name: 'Medicine',
-        slug: 'medicine', 
-        summary: 'The summary of this guide comes here'
+        "id": 2,
+        "name": "School of Medicine",
+        "departments": [
+          {
+            "id": 3,
+            "name": "Pharmacy",
+            "overview": "trgfjkyuhj fyujuifj ruijkdfhjrdfgo2uil8ewufh urikjflhiuewjk fueiwfjhwueakrjfh iurjkfhewrj"
+          }
+        ]
     },
     {
-        id: 3,
-        name: 'Arts',
-        slug: 'arts',
-        description: 'This is the summary right here'
+        "id": 3,
+        "name": "Life Sciences",
+        "departments": [
+          {
+            "id": 1,
+            "name": "Animal and Environmental Biology (AEB)",
+            "overview": "This is a short overview of all the lessons in this department."
+          }
+        ]
     },
     {
-        id: 4,
-        name: 'Management Science',
-        slug: 'management-science',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 5,
-        name: 'Basic Medical Sciences',
-        slug: 'basic-medical-sciences',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 6,
-        name: 'Physical Sciences',
-        slug: 'physical-sciences',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 7,
-        name: 'Life Sciences',
-        slug: 'life-sciences',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 11,
-        name: 'Law',
-        slug: 'law',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 8,
-        name: 'Social Sciences',
-        slug: 'social-sciences',
-        description: 'This is the summary right here'
-    },
-    {
-        id: 9,
-        name: 'Others',
-        slug: 'others',
-        description: 'This is the summary right here'
-    },
+        "id": 4,
+        "name": "General Study",
+        "departments": [
+          {
+            "id": 6,
+            "name": "General Study",
+            "overview": "All courses accessible to everyone belongs to this department."
+          }
+        ]
+      }
 ]
   
   

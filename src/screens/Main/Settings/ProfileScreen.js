@@ -3,12 +3,14 @@ import {StyleSheet, SafeAreaView, Image, ScrollView, StatusBar, Text, useColorSc
 
 import { colors, styles } from '../../../assets/css/main';
 import { settingsStyle } from '../../../assets/css/settings';
-import UserData from '../../../contexts/UserData';
+import UserContext from '../../../contexts/UserContext';
 import noProfileImage from '../../../assets/images/noprofile.png'
 import ProfileElement from '../../../components/Main/ProfileElement';
 
 
 const ProfileScreen = () => {
+  const { email, firstname, lastname, phone_number, gender, profile_image, created_at } = UserContext;
+
   return (
     <ScrollView style={{padding:10}}>
       
@@ -16,27 +18,25 @@ const ProfileScreen = () => {
         <View style={{alignItems: 'center'}}>
           <Image  
             style={[settingsStyle.passport]}
-            source={noProfileImage}
+            source={profile_image ?? noProfileImage}
             alt='Profile Image'
           />
         </View>
 
         <View>
           <Text style={[styles.subHeader, styles.textBlack, styles.textBold, styles.textCenter, {color: colors.green}]}> 
-            {UserData.lastname} {UserData.firstname}
+            {lastname} {firstname}
           </Text>
           <Text style={[styles.paragraph, styles.textBlack, styles.textCenter, {marginTop: -10}]}> 
-            Joined: {UserData.created_at}
+            Joined: {created_at}
           </Text>
         </View>
       </View>
 
       <View style={[settingsStyle.profileElementsBlock, styles.mt0]}>
-        <ProfileElement header="Gender" body={UserData.gender}/>
-        <ProfileElement header="Date of Birth" body={UserData.dateOfBirth}/>
-        <ProfileElement header="Phone Number" body={UserData.phoneNumber}/>
-        <ProfileElement header="Email Address" body={UserData.email}/>
-        <ProfileElement header="Contact Address" body={UserData.address}/>
+        <ProfileElement header="Email Address" body={email ?? 'N/A'}/>
+        <ProfileElement header="Gender" body={gender ?? 'N/A'}/>
+        <ProfileElement header="Phone Number" body={phone_number ?? 'N/A'}/>
       </View>
       
     </ScrollView>
