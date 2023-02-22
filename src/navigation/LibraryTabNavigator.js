@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { styles, colors } from '../assets/css/main';
 import { topTabScreenOptionsStyle } from '../assets/css/nav';
 
-import SubscribedCoursesScreen from '../screens/Main/SubscribedCoursesScreen';
 import CourseGuideListScreen from '../screens/Main/Library/CourseGuideListScreen';
 import CourseOutlineScreen from '../screens/Main/Library/CourseOutlineScreen';
 import DepartmentListScreen from '../screens/Main/Library/DepartmentListScreen';
@@ -15,20 +14,11 @@ import { CourseListProvider } from '../contexts/CourseListContext';
 
 const Tab = createMaterialTopTabNavigator();
 
-const LibraryTabs = () => {
-  return (
-    <Tab.Navigator screenOptions={topTabScreenOptionsStyle}>
-      <Tab.Screen name="Study Guide" component={CourseList}/>
-      <Tab.Screen name="Subscribed Courses" component={SubscribedCoursesScreen}/>
-    </Tab.Navigator> 
-  )
-}
-
 const LibraryTabNavigator = () => {
   const Stack = createNativeStackNavigator();
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Guide List" component={LibraryTabs} options={{headerShown: false}}/>
+      <Stack.Screen name="Study" component={CourseList} options={{headerShown: false}}/>
       <Stack.Screen name="Departments" component={StudyProgrammeList} options={{headerShown: false}}/>
       <Stack.Screen name="Course Outline" component={CourseOutline} options={{headerShown: false}}/>
       <Stack.Screen name="Lesson Content" component={LessonContentScreen} options={{headerShown: false}}/>

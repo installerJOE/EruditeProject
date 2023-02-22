@@ -12,7 +12,7 @@ const MyAppText = (props) => {
 const styles = StyleSheet.create({
   textStyle: {
     color: '#000',
-    fontSize: 16
+    fontSize: 14
   }
 })
 

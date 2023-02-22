@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {Alert, Button, Pressable, SafeAreaView, ScrollView, StatusBar, Text, TextInput, TouchableOpacity, useColorScheme, View} from 'react-native'
 import { SelectList } from 'react-native-dropdown-select-list'
-import studyCourses from './api/studyCourseList'
+// import studyCourses from './api/studyCourseList'
 import Layout from './Layout'
 import { styles, colors } from '../../assets/css/main'
 
@@ -15,11 +15,11 @@ const StudyCourse = ({navigation}) => {
       </Text>
 
       <View style={styles.fixToText}>
-        <SelectList 
+        {/* <SelectList 
           setSelected={(val) => setSelected(val)} 
           data={studyCourses} 
           save="key"
-        />
+        /> */}
       </View>
       
       <View>

@@ -25,5 +25,4 @@ const SubscribedList = [
     },
 ]
   
-  
 export default SubscribedList;

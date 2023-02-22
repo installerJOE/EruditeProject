@@ -1,48 +1,52 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext, useReducer } from 'react'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AcademicsData } from './AcademicsContext';
 import { ScheduleTypes, Timetable } from './ScheduleContext';
+import { getSchedules } from '../screens/Main/Academics/methods/__schedules';
+import axios from 'axios';
 
 export const GlobalContext = createContext();
 
-export const GlobalContextProvider = ({children}) => {
-  
-  const [academics, setAcademics] = useState(null)
-  const [schedules, setSchedules] = useState(null)
-  const [timetable, setTimetables] = useState(null)
-  
-  AsyncStorage.getItem('academics').then(data => {
-    if(data !== null){
-      setAcademics(JSON.parse(data))
-    }
-    else{
-      setAcademics(AcademicsData)
-    }
-  })
-  .catch(error => {
-    console.log(error)
-  })
+export const ACTIONS = {
+  STARTUP: 'app-startup',
+  SAVE_SCHEDULES: 'save-schedules',
+  SAVE_COURSES: 'save-courses',
+}
 
-  AsyncStorage.getItem('schedules').then(data => {
-    if(data !== null){
-        const schedule = JSON.parse(data)
-        setSchedules(schedule.types)
-        setTimetables(schedule.timetable)
+const reducer = (state, action) => {
+  switch(action.type){
+    case ACTIONS.STARTUP:
+      return {
+        ...state,
+        isAuthenticated: true,
+        // user: action.payload.user,
+        // token: action.payload.token
+      };
+    case ACTIONS.SAVE_SCHEDULES:
+      return{
+        ...state,
+        schedules: action.payload.schedules
+      }
+    default: 
+      return state
+  }
+}
+
+export const GlobalContextProvider = ({children}) => {
+  const initialState = {
+      isAuthenticated: false,
+      user: null,
+      academics: null,
+      schedules: null,
+      courses: null,
+      token: '24|tr721flZ58U6YNdcn8O8UAlsgSQXqO7osIigMWtF'
     }
-    else{
-        setSchedules(ScheduleTypes)
-        setTimetables(Timetable)
-    }
-  })
-  .catch(error => {
-    console.log(error)
-  })
+  
+
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
-    <GlobalContext.Provider value={[academics, setAcademics]}>
-
-{/* schedule: schedules,
-        timetable: [timetable, setTimetables] */}
+    <GlobalContext.Provider value={[state, dispatch]}>
       {children}
     </GlobalContext.Provider>
   )

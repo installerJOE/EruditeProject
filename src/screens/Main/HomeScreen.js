@@ -8,8 +8,11 @@ import AppModal from '../../components/AppModal';
 import SplashScreen from 'react-native-splash-screen'
 import axios from 'axios';
 import { AcademicsData } from '../../contexts/AcademicsContext';
-import { GlobalContext } from '../../contexts/GlobalContext';
+import { ACTIONS, GlobalContext } from '../../contexts/GlobalContext';
 import MyAppText from '../../components/MyAppText';
+import { fetchAcademics, fetchSchedules } from './Startup';
+import { ScheduleTypes} from '../../contexts/ScheduleContext';
+import { baseUrl, storeSchedules, __fetchSchedules } from './Academics/methods/__schedules';
 
 const HomeScreen = () => {
 
@@ -17,19 +20,62 @@ const HomeScreen = () => {
     Alert.alert('I am working');
   }
 
-  useEffect(() => {
-    SplashScreen.hide();
-  });
+  // const [startupComplete, setStartupComplete] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [{schedules, token}, dispatch] = useContext(GlobalContext);
 
-  return (
+  const academics = fetchAcademics();  
+
+  useEffect(() => {
+    if(schedules == null){
+      axios.get(`${baseUrl}/schedules/details`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }  
+      })
+      .then(response => {
+        const newSchedules = response.data.data;
+        storeSchedules(newSchedules);
+        dispatch({
+          action: ACTIONS.SAVE_SCHEDULES,
+          payload: {
+            schedules: newSchedules
+          }
+        })
+      })
+      .catch(error => {
+        console.log(error.response.data)
+      })
+
+      // const newSchedules = __fetchSchedules(token);
+
+      
+      // setStartupComplete(true)
+    }
+  }, [])
+
+  
+
+  SplashScreen.hide();
+
+  return ( 
+    // !startupComplete ? 
+    // <AppModal 
+    //   showModal={showModal} 
+    //   closeModal={null}
+    //   title="Set up"
+    //   body="App Loading..."
+    // /> 
+    // :
     <ScrollView>
       <View style={[styles.listContainer, {backgroundColor: '#fff', marginHorizontal:0, marginBottom:0}]}>
         <Text style={[styles.header, {color: 'green'}, styles.textCenter]}>
-          Hi Joe, Good Morning
+          Hi Joe, Good Morning {schedules ? JSON.stringify(schedules) : 'Null'}
         </Text>
 
         <Text style={[styles.textDarkGrey, styles.paragraph, styles.textCenter]}>
           Did you know that you look very awesome today? :)
+          {/* {JSON.stringify(state.schedules.scheduleTypes[0].timetables)} */}
         </Text>
       </View>
 
@@ -50,7 +96,6 @@ const HomeScreen = () => {
         </View>
         <ListItem roundCorner={true} list={{id: 1, title: 'Title of Record Comes Here'}} handleClick={handleItemClick}/>
       </View>
-
 
     </ScrollView>
   );

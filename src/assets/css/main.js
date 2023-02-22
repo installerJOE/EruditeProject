@@ -82,6 +82,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 
+  label: {
+    fontSize: 14,
+    marginVertical: 10,
+  },
+
   formControl: {
     marginBottom: 16,
     paddingVertical: 10,

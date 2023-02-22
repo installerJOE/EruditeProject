@@ -24,9 +24,9 @@ const modalStyle = StyleSheet.create({
   },
   
   button: {
-    borderRadius: 20,
+    borderRadius: 15,
     padding: 10,
-    elevation: 2,
+    elevation: 0,
   },
   
   buttonOpen: {

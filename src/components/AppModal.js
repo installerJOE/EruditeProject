@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Button, Pressable, Text, TouchableOpacity, View } from 'react-native'
 import Modal from "react-native-modal";
 import { colors, styles } from '../assets/css/main';
@@ -20,19 +20,18 @@ const AppModal = ({showModal, closeModal, title, body}) => {
           </Text>
         </View>
 
-        <View style={{padding: 20, paddingVertical: 30}}>
+        <View style={{padding: 24, paddingTop:10, paddingBottom: 36}}>
           <MyAppText>
             {body}
           </MyAppText>
 
-          <TouchableOpacity
-            style={[modalStyle.button, modalStyle.buttonClose]}
-            onPress={closeModal}
-          >
+          <View style={{paddingHorizontal: 10}}>
+          <TouchableOpacity style={[modalStyle.button, modalStyle.buttonClose]} onPress={closeModal}>
             <Text style={[modalStyle.textStyle, styles.textRed]}>
               Exit
             </Text>
           </TouchableOpacity>
+          </View>
         </View>
       </View>
     </Modal>

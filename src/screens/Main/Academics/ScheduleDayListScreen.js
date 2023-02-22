@@ -1,42 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Alert, ScrollView, Text, View } from 'react-native'
-import axios from 'axios'
-// import { ScheduleDays } from '../../../contexts/ScheduleContext'
-import { Timetable } from '../../../contexts/ScheduleContext'
 import ListItem from '../../../components/Courses/ListItem'
 import { styles } from '../../../assets/css/main'
+import { GlobalContext } from '../../../contexts/GlobalContext'
+import { ACTIONS, ScheduleContext } from '../../../contexts/ScheduleContext'
+
 
 const ScheduleDayListScreen = ({route, navigation}) => {
   
-  const [error, setError] = useState(null);
-  const [timetable, setTimetable] = useState([])
+  const { timetables } = route.params;  
 
-  const { id } = route.params;
-
-  const baseUrl = 'https://erudite.igbolibrary.co/api'
-
-  const token = '20|pjs3EKw0butGEUnY1CToEAuvLydFyD1VqTnNHtYT'
-  const data = {
-    headers: {
-      'Authorization': `Bearer ${token}`,
-    }
-  }
-  useEffect(() => {
-    axios.get(`${baseUrl}/schedules/${id}/timetable`, data).then(response => {
-      setTimetable(response.data.data)
-    }).catch(error => {
-      setError(error)
-    })
-  }, [timetable]);
+  const [{currentScheduleType}, updateScheduleState] = useContext(ScheduleContext)
   
   const handleScheduleSelect = (selectedDay) => {
+    updateScheduleState({
+      type: ACTIONS.TOGGLE_DAY,
+      payload: {
+        dayId: selectedDay.id
+      }
+    })
     navigation.navigate('Schedule Content', {
-      timetable: selectedDay,
-      // scheduleType: id
+      day: selectedDay,
     });
   }
 
-  const scheduleTypesBlock = timetable.map(item => 
+  const scheduleTypesBlock = timetables.map(item => 
     <ListItem
       key={item.id} 
       list={item} 
@@ -49,9 +37,7 @@ const ScheduleDayListScreen = ({route, navigation}) => {
   return (
     <ScrollView>
       <View style={styles.mt1}>
-        {error ? <Text style={styles.textBlack}>
-          {error.message}
-        </Text> : scheduleTypesBlock}  
+        {scheduleTypesBlock}  
       </View>
     </ScrollView>
   )

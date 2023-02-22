@@ -5,20 +5,23 @@ import { styles, colors } from '../assets/css/main';
 import { topTabScreenOptionsStyle } from '../assets/css/nav';
 
 
-import Overview from '../screens/Main/Academics/OverviewScreen';
+import OverviewScreen from '../screens/Main/Academics/OverviewScreen';
 import ScheduleListScreen from '../screens/Main/Academics/ScheduleListScreen';
 import ScheduleDayListScreen from '../screens/Main/Academics/ScheduleDayListScreen';
 import { ScheduleListProvider } from '../contexts/ScheduleListContext';
 import ScheduleContentScreen from '../screens/Main/Academics/ScheduleContentScreen';
+import { ROUTE } from './Route';
+import CoursesScreen from '../screens/Main/Academics/CoursesScreen';
+import { ScheduleContextProvider } from '../contexts/ScheduleContext';
 
 const Tab = createMaterialTopTabNavigator();
 
 const AcademicsTabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={topTabScreenOptionsStyle}>
-      <Tab.Screen name="Overview" component={Overview}/>
-      {/* <Tab.Screen name="My Courses" component={ScheduleStackNav}/> */}
-      <Tab.Screen name="My Schedule" component={ScheduleStackNav}/>
+    <Tab.Navigator screenOptions={topTabScreenOptionsStyle} >
+      <Tab.Screen name={ROUTE.ACADEMICS.OVERVIEW} component={OverviewScreen} options={{tabBarLabel: 'Overview'}}/>
+      <Tab.Screen name={ROUTE.ACADEMICS.MY_COURSES} component={CoursesScreen} options={{tabBarLabel: 'Courses'}}/>
+      <Tab.Screen name={ROUTE.ACADEMICS.MY_SCHEDULE} component={ScheduleStackNav} options={{tabBarLabel: 'Schedule'}}/>
     </Tab.Navigator> 
   )
 }
@@ -26,28 +29,13 @@ const AcademicsTabNavigator = () => {
 const ScheduleStackNav = () => {
   const Stack = createNativeStackNavigator();
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Schedule Type" component={ScheduleList} options={{headerShown: false}}/>
-      <Stack.Screen name="Schedule Days" component={ScheduleDayList} options={{headerShown: false}}/>
-      <Stack.Screen name="Schedule Content" component={ScheduleContentScreen} options={{headerShown: false}}/>
-    </Stack.Navigator>
-  )
-}
-
-const ScheduleList = ({navigation}) => {
-  return(
-    <ScheduleListProvider> 
-      <ScheduleListScreen navigation={navigation}/> 
-    </ScheduleListProvider>
-  )
-}
-
-
-const ScheduleDayList = ({route, navigation}) => {
-  return (
-    <ScheduleListProvider>
-      <ScheduleDayListScreen navigation={navigation} route={route}/>
-    </ScheduleListProvider>
+    <ScheduleContextProvider>
+      <Stack.Navigator>
+        <Stack.Screen name="Schedule Type" component={ScheduleListScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Schedule Days" component={ScheduleDayListScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Schedule Content" component={ScheduleContentScreen} options={{headerShown: false}}/>
+      </Stack.Navigator>
+    </ScheduleContextProvider>
   )
 }
 

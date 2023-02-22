@@ -1,3 +1,32 @@
+import axios from "axios";
+import { GlobalContext } from "./GlobalContext";
+
+
+export const BASE_URL = 'https://erudite.igbolibrary.co/api'
+
+export const __fetchCourses = () => {
+
+  const [{token}, dispatch] = useContext(GlobalContext)
+
+  axios.get(`${BASE_URL}/registered-courses`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    }  
+  })
+  .then(response => {
+    return {
+      success: true,
+      data: response.data.data
+    }
+  })
+  .catch(error => {
+    return {
+      success: false,
+      data: error
+    }
+  })
+}
+
 const RegisteredCoursesContext = [
     {
         "id": 1,

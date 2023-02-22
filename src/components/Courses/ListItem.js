@@ -2,11 +2,12 @@ import React from 'react'
 import {Alert, SafeAreaView, ScrollView, StatusBar, Text, TouchableOpacity, useColorScheme, View} from 'react-native'
 import { colors, styles } from '../../assets/css/main'
 
-const ListItem = ({ list, caption, handleClick, roundCorner, submit }) => {
+const ListItem = ({ list, caption, handleClick, roundCorner, submit, title }) => {
   return (
     <TouchableOpacity onPress={() => handleClick(submit == 'object' ? list : list.id)}>
       <View style={[styles.listContainer, {borderRadius: roundCorner ? 5 : 0}]}>
         <Text style={[styles.paragraph, styles.textBlack]}>
+          {title && title + ' - '}
           {('name' in list) ? list.name : ('value' in list ? list.value : list.title)}
         </Text>
         {caption && <Caption text={caption}/>}
